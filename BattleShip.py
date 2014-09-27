@@ -42,8 +42,8 @@ ship_row = random_row(board)
 ship_col = random_col(board)
 
 #display coordinates for debugging
-print ship_row + 1
-print ship_col + 1
+#print ship_row + 1
+#print ship_col + 1
 
 #begin counting turns
 for turn in range(4):
