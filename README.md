@@ -1,7 +1,7 @@
 Battleships-PythonTextGame
 ==========================
 
-A text based battleships game.
+A simple text based battleships game written in python.
 
 Potential Goals:
   - A config file for some game settings
