@@ -18,6 +18,10 @@ def random_col(board):
     return randint(0, len(board[0]) - 1)
 
 """ Begin main program """
+#generate 5x5 board
+for x in range(5):
+    board.append(["O"] * 5)
+
 #display introduction and game board
 print "Let's play Battleship!"
 print_board(board)
