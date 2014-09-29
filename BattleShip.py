@@ -46,11 +46,14 @@ while play_again == "Y":
     ship_col = random_col(board)
     
     #display coordinates for debugging
-    #print ship_row + 1
-    #print ship_col + 1
+    print ship_row + 1
+    print ship_col + 1
     
     #begin counting turns
     for turn in range(4):
+        #display turn number
+        print "Turn", turn + 1
+        
         #collect guess input
         print "Enter two coordinates between 1 and 5."
         guess_row = int(raw_input("Guess Row:")) - 1
@@ -59,35 +62,51 @@ while play_again == "Y":
         
         #check for hits
         if guess_row == ship_row and guess_col == ship_col:
+            #update board
             board[guess_row][guess_col] = "H"
+            
+            #display updated board
             print_board(board)
+            print
+            
+            #display win message
             print "Congratulations! Your secrets are safe!"
             break
         
         #check for guesses out of range 
         else:
             if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
+                #display updated board
+                print_board(board)
+                print
+                
+                #display last turn result
                 print "You missed the ocean! Aim more carefully next time."
                 print
             
             #check for conflicting guesses
             elif(board[guess_row][guess_col] == "X"):
+                #display updated board
+                print_board(board)
+                print
+                
+                #display last turn result
                 print "You fired there already! He's still not there..."
                 print
                 
             #check for miss
             else:
-                print "Sploosh! You hit... some fish. Try again."
-                print
+                #update board
                 board[guess_row][guess_col] = "X"
                 
-            #display turn number
-            print "Turn", turn + 1
-            
-            #display updated board
-            print_board(board)
-            print
-            
+                #display updated board
+                print_board(board)
+                print
+                
+                #display last turn result
+                print "Sploosh! You hit... some fish. Try again."
+                print
+                
             #check for game over
             if turn == 3:
                 print "The enemy spy has escaped with all your secrets..."
