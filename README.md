@@ -1,4 +1,4 @@
-Battleships-PythonTextGame
+Battleships Anti-Climaax - A Python Text Game
 ==========================
 
 A simple text based battleships game written in python.
