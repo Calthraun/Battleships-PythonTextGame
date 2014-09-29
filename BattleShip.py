@@ -7,6 +7,17 @@ from os import system #import window naming function
 play_again = "Y"
 
 """ Define main functions """
+#collects int input
+def collect_int(message):
+    int_var = 0
+    while True:
+        try:
+            int_var = int(raw_input(message))
+            break
+        except ValueError:
+            print "Oops, that's not a number, please try again."
+    return int_var
+            
 #formats and prints the board so it can be read.
 def print_board(board):
     for row in board:
@@ -46,8 +57,9 @@ while play_again == "Y":
     ship_col = random_col(board)
     
     #display coordinates for debugging
-    print ship_row + 1
-    print ship_col + 1
+    #print ship_row + 1
+    #print ship_col + 1
+    #print
     
     #begin counting turns
     for turn in range(4):
@@ -56,8 +68,8 @@ while play_again == "Y":
         
         #collect guess input
         print "Enter two coordinates between 1 and 5."
-        guess_row = int(raw_input("Guess Row:")) - 1
-        guess_col = int(raw_input("Guess Column:")) - 1
+        guess_row = collect_int("Enter guess Row:") - 1
+        guess_col = collect_int("Enter guess Column:") - 1
         print
         
         #check for hits
